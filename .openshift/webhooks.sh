@@ -1,0 +1,13 @@
+# Environment variables sourced during application startup on OpenShift
+
+export GITHUB_X_HUB_SIGNATURE_SECRET=xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+
+export TRELLO_APP_KEY=xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+export TRELLO_SECRET=xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+export TRELLO_USER_TOKEN=xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+
+export TRELLO_BOARDS=xxxxxxxxxxxxxxxxxxxxxxxx
+export TRELLO_TARGET_LIST_ID=xxxxxxxxxxxxxxxxxxxxxxxx
+
+export TZ=Europe/London
+export TRELLO_SET_TARGET_RESPONSE_TIME=true

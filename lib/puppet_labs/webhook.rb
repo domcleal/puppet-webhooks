@@ -38,12 +38,13 @@ class Webhook
     when 'test'
       ActiveRecord::Base.logger.level = Logger::ERROR
       Delayed::Worker.logger.level = Logger::ERROR
-      Delayed::Job.scaler = :null
+      scaler = :null
     else
       ActiveRecord::Base.logger.level = Logger::ERROR
       Delayed::Worker.logger.level = Logger::INFO
-      Delayed::Job.scaler = :heroku_cedar
+      scaler = :heroku_cedar
     end
+    Delayed::Job.scaler = ENV['WORKLESS_SCALER'] || scaler
 
     dbconfig = YAML.load(ERB.new(File.read('config/database.yml')).result)
     ActiveRecord::Base.establish_connection(dbconfig[rack_env])

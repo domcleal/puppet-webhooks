@@ -16,9 +16,11 @@ test:
   password:
 production:
   adapter: postgresql
-  host: localhost
   encoding: unicode
-  database: puppet_webhooks_dev
   pool: 5
-  username:
-  password:
+  database: <%=ENV['OPENSHIFT_APP_NAME']%>
+  username: <%=ENV['OPENSHIFT_POSTGRESQL_DB_USERNAME']%>
+  password: <%=ENV['OPENSHIFT_POSTGRESQL_DB_PASSWORD']%>
+  socket: <%=ENV['OPENSHIFT_POSTGRESQL_DB_SOCKET']%>
+  host: <%=ENV['OPENSHIFT_POSTGRESQL_DB_HOST']%>
+  port: <%=ENV['OPENSHIFT_POSTGRESQL_DB_PORT']%>

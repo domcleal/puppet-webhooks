@@ -169,6 +169,7 @@ PLATFORMS
 
 DEPENDENCIES
   business_time
+  daemons
   delayed_job_active_record
   hub
   irbtools

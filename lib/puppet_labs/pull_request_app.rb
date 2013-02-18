@@ -140,8 +140,7 @@ module PuppetLabs
             :params => request.params
         )
         event = Event.new(:name => "Event #{request.path_info}",
-                          :payload => payload,
-                          :request => req.to_yaml)
+                          :payload => payload)
         event.save
         limit_events_to limit
         logger.info "Created event_id=#{event.id}"
@@ -175,7 +174,7 @@ module PuppetLabs
       ActiveRecord::Base.logger = logger.clone
       ActiveRecord::Base.logger.level = Logger::ERROR
       Delayed::Backend::ActiveRecord::Job.send(:include, Delayed::Workless::Scaler)
-      Delayed::Job.scaler = :heroku_cedar
+      Delayed::Job.scaler = ENV['WORKLESS_SCALER'] || :heroku_cedar
     end
 
     configure do

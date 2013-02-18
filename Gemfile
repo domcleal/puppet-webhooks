@@ -12,6 +12,7 @@ gem 'sinatra-activerecord'
 gem 'delayed_job_active_record'
 gem 'workless', '~> 1.1.1'
 gem 'business_time'
+gem 'daemons'
 
 group :development do
   gem 'watchr'

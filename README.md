@@ -353,6 +353,25 @@ With the specific hook URL:
       }
     }' https://api.github.com/repos/jeffmccune/puppet-webhooks/hooks/633908
 
+OpenShift
+====
+
+The project can be run on [OpenShift](http://openshift.redhat.com) instead of
+Heroku.  First create the app:
+
+    $ rhc app create --no-git puppetwebhooks ruby-1.9
+    $ rhc cartridge add postgresql-8.4 -a puppetwebhooks
+
+Copy and edit `.openshift/webhooks.sh` with the config settings required,
+from the quick start above.  scp the file to the application:
+
+    $ scp webhooks.sh 5....c@puppetwebhooks-username.rhcloud.com:app-root/data/webhooks.sh
+
+Add the git URL to your checkout, then push the application:
+
+    $ git remote add openshift ssh://.../puppetwebhooks.git/
+    $ git push -f openshift master
+
 Examples
 ====
 
